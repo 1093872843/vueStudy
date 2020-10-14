@@ -1,0 +1,4 @@
+git
+  http形式上传，
+  git需要的账户其实是邮箱，
+  git需要的密码是登录官网=》setting=》developer Settings=>Personal access tokens中的token
