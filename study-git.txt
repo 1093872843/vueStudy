@@ -5,6 +5,8 @@ git
     git需要的密码是项目创建者登录官网=》setting=》developer Settings=>Personal access tokens中的token
   2.每次提交都需要输入账号密码
     配置
-    git config user.name "你的邮箱"
-    git config user.password "Personal access tokens中的token"
-
+    git config --global user.name "你的邮箱"
+    git config --global user.password "Personal access tokens中的token"
+  3.回滚
+    git reflog
+    git reset --hard 'git reflog查出来的id'
