@@ -1,0 +1,4 @@
+1.<style>有scope属性后，能够将标签内部的CSS选择器自动加上后缀，使其仅应用在此组件内。
+原本的 .name选择器名称编译后会变为.name[xxxxxxx]; 
+
+2.CSS预处理语言:scss,less,sass
