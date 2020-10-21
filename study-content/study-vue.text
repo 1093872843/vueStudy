@@ -1,8 +1,24 @@
-1.整个vue项目其实就是一个最大的vue实例，所有的组件，变量，都是挂载在这个vue实例下的内容，
-我们一般做的Vue.xxx操作，比如Vue.component，Vue.config其实就是对这个最大的vue实例操作，也就是操作全局变量。
+1.main.js
+  main.js是项目的入口文件，项目中所有的页面都会加载main.js,所以main.js,主要有三个作用：
+    1.实例化Vue。
+    2.放置项目中经常会用到的插件和CSS样式。例如： 网络请求插件:axios和vue-resource、图片懒加载插件：vue-lazyload
+    3.存储全局变量。例如（用于的基本信息）
 
 2.vue操作的是虚拟Dom节点，这是一个树形结构，每一个标签都是一个节点，甚至每一个标签的文本内容也是一个子节点。
 
+3.Vue全局配置
+  详情请查看vue官网Vue API.
+
+4.Vue 根据不同上线环境全局变量设置
+  在package.json同目录下创建 
+  .env  文件。配置package.json中的启动命令 vue-cli-service serve  //默认挂载.env 文件变量
+  .env.prod  文件。配置package.json中的启动命令vue-cli-service serve --mode prod //默认挂载.env.prod 文件变量
+  .env.dev  文件。配置package.json中的启动命令vue-cli-service serve --mode dev //默认挂载.env.dev 文件变量
+
+  使用方式：
+    设置上述变量后，可以全局使用，通过process.env.xxx来获取变量。
+    
+  后端同学可以参考springBoot properties文件不同环境的配置 进行学习。
 
 dependencies 和 devDependencies 的区别
   dependencies 是使用 npm install module-name -save 安装的依赖包

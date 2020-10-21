@@ -1,12 +1,87 @@
+
+一. 一次完整的连接命令
+  ----------------------------------------
+  git remote add origin xxxxxxxxxx
+  git checkout -b xueyunlong
+  git branch --set-upstream origin/xueyunlong
+  git pull //如果是从本地初始化到远端地址，可以不执行这里
+  git push
+  ----------------------------------------
+二. 融合本地,融合dev分支进入xueyunlong分支
+  ---------------------------------------
+  git add .
+  git commit - m '融合分支'
+  git pull origin xueyunlong  //更新xueyunlong分支代码
+  git checkout dev //切换本地dev分支
+  git pull origin dev  //更新本地dev分支代码
+  git checkout xueyunlong //切换回去本地xueyunlong分支
+  git merge dev //融合dev到当前分支
+  git push origin HEAD:xueyunlong //推动xueyunlong分支到远端
+  --------------------------------------
+
+
 git
   1.账号密码
     http形式上传，
     git需要的账户其实是邮箱，
     git需要的密码是项目创建者登录官网=》setting=》developer Settings=>Personal access tokens中的token
-  2.每次提交都需要输入账号密码
-    配置
+  
+  2.配置账户面膜，就不用每次提交都需要输入账号密码
+    ----------------------------------------
     git config --global user.name "你的邮箱"
     git config --global user.password "Personal access tokens中的token"
+    --------------------------------------------
   3.回滚
+    ----------------------------------------------
     git reflog
     git reset --hard 'git reflog查出来的id'
+    -------------------------------------------------
+
+  4.连接远程分支 remote
+    git remote add <给远端地址起的别名> <远端地址>
+    git remote  //显示所有可连接远端分支
+    git remote show <指定远端地址别名>  //查看该地址上的本地分支与远端分支对应。
+    git branch --set-upstream <远端地址>/<远端分支名> //设置当前分支的默认连接远端分支
+    git branch --set-upstream-to <远端地址>/<远端分支名> //设置当前分支的默认连接远端分支
+  
+  5.克隆远端代码 clone
+    git clone <远端地址>  //默认拉取master分支
+    git clone -b <分支名> <远端地址> //拉取指定分支的代码
+
+  6.提交流程
+     --------------------------------------------
+    git add .
+    git commit -m <提交信息>
+    git pull <远端地址别名> <远端分支名>
+    git push <远端地址别名> HEAD:<远端分支名>-
+    ----------------------------------------------
+ 
+  7.分支操作 branch和checkout
+    -------------------------
+    git branch <创建分支名> //创建本地分支，创建的内容根据你执行该条命令所在的分支决定。
+    git checkout <指定分支名> //切换分支，切换到制定分支
+    git branch --set-upstream <远端地址>/<远端分支名> //设置当前分支的默认连接远端分支
+    ---------------------------
+    git checkout -b <创建分支名> //创建本地分支并切换到该分支
+    git merge <指定分支名> //融合指定分支到当前分支。
+    git branch -d <指定分支名> //删除指定分支
+    git branch --set-upstream <远端地址>/<远端分支名> //设置当前分支的默认连接远端分支
+    git branch --set-upstream-to <远端地址>/<远端分支名> //设置当前分支的默认连接远端分支
+    git branch  //查看所有本地分支
+    git branch -r //查看所有远程分支
+    git branch -a //查看所有本地和远端分支
+    git branch -m <旧分支名称> <新分支名称> //重命名本地分支
+
+  8.拉取分支 fetch 和 pull
+    pull和fetch区别
+    pull是将远端代码拉到本地并融合，而fetch是将远端代码拉到本地不融合，然后进行手动融合。
+    git pull = git fetch + git merge
+    -------------------------------------
+    git fetch origin master:temp //在本地新建一个temp分支，并将远程origin仓库的master分支代码下载到本地temp分支
+    git diff temp  //比较本地代码与刚刚从远程下载下来的代码的区别；
+    git merge temp //合并temp分支到本地的master分支;
+    git branch -d temp //如果不想保留temp分支，删除;
+    ---------------------------------------
+    git pull //默认拉取-set-upstream 指定的分支到当前分支
+    git pull origin <指定的远端分支名>:<新的本地分支名> //拉取指定的远端分支并创建一个新的分支接收。
+     

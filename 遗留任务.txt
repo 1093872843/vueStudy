@@ -7,10 +7,8 @@ text-decoration: none;
 @media
 
 webpack
-vue vue.compotent渲染,引入，插槽。
-vue 配置文件学习
-process.env.NODE_ENV
-
-Vue.config.devtools = true;
+尝试vue vue.compotent渲染,引入，插槽.
 
 混淆js
+
+Vuex 和vue
