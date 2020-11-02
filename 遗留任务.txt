@@ -30,15 +30,9 @@ CSS Modules
 after
 before
 
-<<<<<<< HEAD
-
-
-按钮的创建是根据情况创建多个，然后按需求隐藏；还是在内部进行逻辑判断更合理。
-=======
 webpack
 尝试vue vue.compotent渲染,引入，插槽.
 
 混淆js
 
 Vuex 和vue
->>>>>>> 11f20e0aaa2b2e88aaadaa5e0388c5a36c9e2a9f

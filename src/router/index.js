@@ -4,7 +4,6 @@ import Home from '@/view/Home/index'
 
 Vue.use(Router)
 
-<<<<<<< HEAD
 //核心路由 
 const CORE_ROUTE = [
   {
@@ -31,21 +30,3 @@ router.onError((error) => {
 });
 
 export default router;
-=======
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-      path: '/demo/storeDemo',
-      name: 'storeDemo',
-      //动态导入组件
-      component: () =>
-      import('@/demo/storeDemo'),
-    }
-  ]
-})
->>>>>>> 11f20e0aaa2b2e88aaadaa5e0388c5a36c9e2a9f
