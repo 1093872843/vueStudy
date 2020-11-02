@@ -1,13 +1,17 @@
 /*
- * @Author: your name
- * @Date: 2020-06-05 16:56:04
- * @LastEditTime: 2020-06-16 17:00:58
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /rd-ipm-app/vue.config.js
+  vue 配置文件，放在package.json同级目录下生效。
+  官方文档请搜索vue CLI官网的 vue Config .
  */
 
 module.exports = {
+  devServer: {
+    proxy: {
+      '/request/RequestOrders': {
+        target: 'http://172.16.51.187:8081',
+      },
+    },
+  },
+  //配置代理，注意请求的时候服务器前缀不屑才能够经过代理。
   publicPath: './',
   //默认值: '/'
   //module.exports是一个对象，所以该位置可以写表达式
