@@ -1,0 +1,70 @@
+1.vue操作的是虚拟Dom节点，这是一个树形结构，每一个标签都是一个节点，甚至每一个标签的文本内容也是一个子节点。
+2.vue项目对组件的处理是按需加载的，每个异步组件都会生成不同的chunk分片。
+
+vue创建的几种方式
+  一个.vue文件可以看作是一个vue实例，编译过程中，vue-loader会把.vue文件夹加载为三个部分并交个特定的处理器然后产生一个页面。
+  1.js语法
+    1.1使用template模板
+      <script>
+          Vue.component('magic-eight-ball', {
+            data: function () {
+              return {
+                possibleAdvice: ['Yes', 'No', 'Maybe']
+              }
+            },
+            methods: {
+              giveAdvice: function () {
+                var randomAdviceIndex = Math.floor(Math.random() * this.possibleAdvice.length)
+                this.$emit('give-advice', this.possibleAdvice[randomAdviceIndex])
+              }
+            },
+            template: `
+              <button v-on:click="giveAdvice">
+                Click me for advice
+              </button>
+            `
+          })
+      </script
+
+      1.2 使用html和js
+        <div id="emit-example-argument">
+          <magic-eight-ball v-on:give-advice="showAdvice"></magic-eight-ball>
+        </div>
+
+        <script>
+          new Vue({
+            el: '#emit-example-argument', //数据挂载在页面的位置，关联html标签id
+            methods: {
+              showAdvice: function (advice) {
+                alert(advice)
+              }
+            }
+          })
+        </script>
+      
+      1.3 函数式创建（渲染函数）
+        Vue.component('magic-eight-ball', {
+          // Props 是可选的
+          props: {},
+          // 为了弥补缺少的实例
+          // 提供第二个参数作为上下文
+          render: function (createElement, context) {}
+        })
+
+      1.4使用Babel 插件，用于在 Vue 中使用 JSX 语法，让我们使用渲染函数更接近于模板的语法上。
+        import AnchoredHeading from './AnchoredHeading.vue'
+        new Vue({
+          el: '#demo',
+          render: function (h) {
+            return (
+              <AnchoredHeading level={1}>
+                <span>Hello</span> world!
+              </AnchoredHeading>
+            )
+          }
+        })
+        
+  2.vue文件创建
+    .vue文件是自定义的一种文件类型，分为三个部分。<template>,<script>,<style>
+
+

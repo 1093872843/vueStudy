@@ -1,16 +1,35 @@
+Vue.component
+Vue.prototype.$
+
  CSS3
  position: fixed;
 -webkit-
 text-decoration: none;
 .close:hover,
 .close:focus
+white-space
 @media
+babylon
 
-webpack
-vue vue.compotent渲染,引入，插槽。
-vue 配置文件学习
-process.env.NODE_ENV
 
-Vue.config.devtools = true;
 
+process.env.NODE_ENV -----这是类似于java的配置文件，可以根据启动命令的不同，使用对应的配置文件。从而完成环境和变量的切换。
+antd是什么 -----蚂蚁集团的产品，一系列适用各个前端框架的UI组件框架
+webpack -----
+webkit -----
 混淆js
+.server-wrap>.footer
+CSS Modules 
+
+使用css moudel开发
+拖拽图片 拖拽效果
+实现点击按钮，预设输入文字的风格。
+尝试vue vue.compotent渲染,引入，插槽。
+实现多语言,至少三种语言
+使用mock
+after
+before
+
+
+
+按钮的创建是根据情况创建多个，然后按需求隐藏；还是在内部进行逻辑判断更合理。

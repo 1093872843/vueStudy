@@ -1,0 +1,79 @@
+1. 下载node,node里面包含着npm
+2. 下载vue cli (cnpm install vue-cli -g )
+3. 创建项目 (vue init webpack  "项目名称")
+4. 查看App.vue是否有<router-view />
+5. 创建vue后缀的文件
+6. 创建router路由到创建的vue文件。
+7. 安装ant-vue公共组件 npm install ant-design-vue --save
+8. 导入需要的vue组件。详情请见 main.js文件.
+
+
+文件夹
+  ---src
+    |------assets (资源文件夹)
+        |------ css
+        |------ font
+        |------ less
+        |------ images
+    |------components  (自定义组建文件夹)
+    |------router (路由文件夹)
+    |------view (视图/页面文件夹)
+    |------api (接口配置文件夹)
+    |------utils
+    |------directive (自定义指令文件夹)
+    |------core (核心资源加载文件夹)
+
+
+vue风格指南
+    ·基础组件名
+        应用特定样式和约定的基础组件 (也就是展示类的、无逻辑的或无状态的组件) 应该全部以一个特定的前缀开头，比如 Base、App 或 V。
+        eg：
+            |- BaseButton.vue
+            |- BaseTable.vue
+            |- BaseIcon.vue
+    ·单例组件名
+      只应该拥有单个活跃实例的组件应该以 The 前缀命名，以示其唯一性
+      这不意味着组件只可用于一个单页面，而是每个页面只使用一次。这些组件永远不接受任何 prop，因为它们是为你的应用定制的，而不是它们在你的应用中的上下文。如果你发现有必要添加 prop，那就表明这实际上是一个可复用的组件，只是目前在每个页面里只使用一次。
+        eg:
+            |- TheHeading.vue
+            |- TheSidebar.vue
+    ·紧密耦合的组件名
+        和父组件紧密耦合的子组件应该以父组件名作为前缀命名。
+        如果一个组件只在某个父组件的场景下有意义，这层关系应该体现在其名字上。因为编辑器通常会按字母顺序组织文件，所以这样做可以把相关联的文件排在一起。
+        eg:
+          TodoList.vue
+            |- TodoListItem.vue
+            |- TodoListItemButton.vue
+    ·组件名中的单词顺序
+          组件名应该以高级别的 (通常是一般化描述的) 单词开头，以描述性的修饰词结尾。
+          eg：
+            |- SearchButtonClear.vue
+            |- SearchButtonRun.vue
+          而不是
+            |- ClearSearchButton.vue
+            |- ExcludeFromSearchInput.vue
+    ·自闭合组件
+          在单文件组件、字符串模板和 JSX 中没有内容的组件应该是自闭合的——但在 DOM 模板里永远不要这样做。
+          HTML 并不支持自闭合的自定义元素——只有官方的“空”元素。所以上述策略仅适用于进入 DOM 之前 Vue 的模板编译器能够触达的地方，然后再产出符合 DOM 规范的 HTML。
+          eg:
+            <!-- 在单文件组件、字符串模板和 JSX 中 -->
+            <MyComponent/>
+            <!-- 在 DOM 模板中 -->
+            <my-component></my-component>
+          而不是
+            <!-- 在单文件组件、字符串模板和 JSX 中 -->
+            <MyComponent></MyComponent>
+            <!-- 在 DOM 模板中 -->
+            <my-component/>
+
+
+
+
+    ·css局部变量
+        起效比起scoped属性，更偏爱使用CSS模块。因为这让覆盖vue内部样式更容易。
+    ·私有变量
+        推荐使用$_yourLocalName_params,推荐使用$_ + 自定义的空间名 + 变量名的方式。
+      平常我们建立私有变量会使用 _ ,但是vue也是用 _ 来自定义其自身的私有变量，不能保证未来不会发生冲突。
+      对应及使用 $ 前缀，这其实是vue暴露给用户的一个特殊实例，所以它也不适合。
+      这样就推荐使用 $_ 的方式，之所有要加上自定义的空间名，是为了防止不同用户制作的插件中存在变量名冲突。
+    
