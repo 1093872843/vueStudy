@@ -1,4 +1,5 @@
 <template>
+  <!-- 首页入口 -->
   <a-layout id="components-layout-demo-top-side-2">
     <a-layout-header class="header">
       <div class="logo" />
@@ -10,7 +11,9 @@
       >
         <template v-for="barItem in BAR_CONFIG">
           <a-menu-item :key="barItem.path">
-            {{barItem.name}}
+            <router-link :to="barItem.path">
+              {{ barItem.name }}
+            </router-link>
           </a-menu-item>
         </template>
       </a-menu>

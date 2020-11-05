@@ -84,15 +84,16 @@ git
     ---------------------------------------
     git pull //默认拉取-set-upstream 指定的分支到当前分支
     git pull origin <指定的远端分支名>:<新的本地分支名> //拉取指定的远端分支并创建一个新的分支接收。
-<<<<<<< HEAD
   
   9.推动分支 push
     git push -f //谨慎使用该命令 -f 属于强制提交，会直接覆盖远端代码而不是融合，这将会的别人提交的代码消失。同时版本号也会消失，只保留你推送的内容
                 //但如果该分支只有你一个使用者，那可以放心用。
      
 
-待处理
-revert 
-=======
-     
->>>>>>> 11f20e0aaa2b2e88aaadaa5e0388c5a36c9e2a9f
+问题 
+      ------------------------------------------------------------------
+        fatal: unable to access 'https://github.com/1093872843/vueStudy.git/': OpenSSL SSL_connect: Connection was reset in connection to github.com:443
+      -----------问题原因-------
+        网路被封，使用代理即可解决
+      -----------解决方案-------
+         git config --global --unset http.proxy

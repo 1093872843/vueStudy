@@ -1,6 +1,6 @@
 Vue.component
 Vue.prototype.$
-
+vue 中的name有什么用。
  CSS3
  position: fixed;
 -webkit-
