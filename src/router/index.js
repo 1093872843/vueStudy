@@ -23,11 +23,23 @@ const CORE_ROUTE = [
 //Css样式路由
 const CSS_ROUTE = [
   {
-    // 结果页面
-    path: "/css/wired/opacity01",
-    name: "opacity01",
-    component: () => import("@/weirdCss/opacity/opacity-weird1.vue")
-  }   
+    // Css首页
+    path: "/css/wired",
+    name: "wired",
+    component: () => import("@/weirdCss/index.vue")
+  },
+  {
+    // 过渡演示
+    path: "/css/wired/opacityIndex",
+    name: "opacityIndex",
+    component: () => import("@/weirdCss/opacity/opacity-index.vue")
+  },
+  {
+    // 阴影演示
+    path: "/css/wired/boxShadowIndex",
+    name: "boxShadowIndex",
+    component: () => import("@/weirdCss/box-shadow/box-shadow-index.vue")
+  }
 ];
 
 let router = new Router({

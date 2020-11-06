@@ -1,7 +1,7 @@
 export const BAR_CONFIG = {
   css001: {
     name: "CSS",
-    path: "/css/wired/opacity01",
+    path: "/css/wired",
   },
   // es6: {
   //   name: "ES6",
