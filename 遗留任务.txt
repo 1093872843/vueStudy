@@ -10,7 +10,10 @@ text-decoration: none;
 white-space
 @media
 babylon
-
+制作百叶窗。
+制作css好看的图形。
+制作进度条 手动，process，。
+制作上传按钮，要求能够拖动图片，缓存本地，点击下载。
 
 
 process.env.NODE_ENV -----这是类似于java的配置文件，可以根据启动命令的不同，使用对应的配置文件。从而完成环境和变量的切换。

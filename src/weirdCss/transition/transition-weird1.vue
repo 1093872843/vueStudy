@@ -2,31 +2,33 @@
   <div class="test-container">
     <div class="flex-div">
       这是一段过渡动画，鼠标移上去，div将左滑入淡入淡出。
-      <div class="x-drop"><div>我出来了</div></div>
+      <div class="x-drop">
+        <div class="x-drop">点我</div>
+      </div>
     </div>
     <div class="flex-code">
       <div>
         <pre>
-          .flex-div {
-            .x-drop {
-              width: 0px;
-              height: 300px;
-              opacity: 0.1;
-              transition: 2s;
-              background: white;
-              -webkit-transition: 2s; /* Safari */
-            }
-          }
-          .flex-div:hover {
-            .x-drop {
-              width: 300px;
-              height: 300px;
-              transition: 2s;
-              opacity: 0.9;
-              background: white;
-              -webkit-transition: 2s; /* Safari */
-            }
-          }
+.flex-div {
+  .x-drop {
+    width: 0px;
+    height: 300px;
+    opacity: 0.1;
+    transition: 2s;
+    background: white;
+    -webkit-transition: 2s; /* Safari */
+  }
+}
+.flex-div:hover {
+  .x-drop {
+    width: 300px;
+    height: 300px;
+    transition: 2s;
+    opacity: 0.9;
+    background: white;
+    -webkit-transition: 2s; /* Safari */
+  }
+}
           </pre
         >
       </div>

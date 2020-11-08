@@ -6,7 +6,29 @@
     <div class="flex-code">
       <div>
         这是一段过渡动画，鼠标移上去，div将出现选中效果。
-        <pre></pre>
+        <pre>
+.flex-div {
+  .x-drop {
+    width: 50px;
+    height: 50px;
+    transition: 0.5s;
+    background: white;
+    border-radius: 100px;
+    -webkit-transition: 0.5s; /* Safari */
+  }
+}
+.flex-div:hover {
+  .x-drop {
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 0 60px 30px #fff, /* inner white */ 0 0 100px 60px #f0f,
+      /* middle magenta */ 0 0 140px 90px #0ff; /* outer cyan */
+    background: white;
+    transition: 0.5s;
+    -webkit-transition: 0.5s; /* Safari */
+  }
+}
+        </pre>
       </div>
     </div>
   </div>
@@ -34,10 +56,10 @@ export default {
   .x-drop {
     width: 50px;
     height: 50px;
-    transition: 0.2s;
+    transition: 2s;
     background: white;
     border-radius: 100px;
-    -webkit-transition: 0.2s; /* Safari */
+    -webkit-transition: 2s; /* Safari */
   }
 }
 .flex-div:hover {
@@ -47,7 +69,7 @@ export default {
     box-shadow: 0 0 60px 30px #fff, /* inner white */ 0 0 100px 60px #f0f,
       /* middle magenta */ 0 0 140px 90px #0ff; /* outer cyan */
     background: white;
-    -webkit-transition: 0.3s; /* Safari */
+    -webkit-transition: 2s; /* Safari */
   }
 }
 .flex-code {

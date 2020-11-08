@@ -12,12 +12,6 @@ const CORE_ROUTE = [
     name: "home",
     component: Home
   },
-  {
-    // 结果页面
-    path: "/test/dropDown",
-    name: "home",
-    component: () => import("@/component/dropDown/test.vue")
-  }
 ];
 
 //Css样式路由
@@ -30,15 +24,21 @@ const CSS_ROUTE = [
   },
   {
     // 过渡演示
-    path: "/css/wired/opacityIndex",
-    name: "opacityIndex",
-    component: () => import("@/weirdCss/opacity/opacity-index.vue")
+    path: "/css/wired/transitionIndex",
+    name: "transitionIndex",
+    component: () => import("@/weirdCss/transition/transition-index.vue")
   },
   {
     // 阴影演示
     path: "/css/wired/boxShadowIndex",
     name: "boxShadowIndex",
     component: () => import("@/weirdCss/box-shadow/box-shadow-index.vue")
+  },
+  {
+    // shape演示
+    path: "/css/wired/shapeIndex",
+    name: "shapeIndex",
+    component: () => import("@/weirdCss/shape/shape-index.vue")
   }
 ];
 

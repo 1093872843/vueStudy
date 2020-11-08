@@ -17,43 +17,12 @@ export default {
     return {
       sourceData: [
         {
-          name: "交互",
+          name: "百叶窗",
           icon: "",
-          description: "哦~老铁，你想成为魔法师吗？",
+          description: "敬请期待",
           width: "90vw",
-          path: "/css/wired/dynamicStyle"
+          path: ""
         },
-        {
-          name: "图形",
-          icon: "",
-          description: "你想要个苹果还是peach？",
-          width: "90vw",
-          path: "/css/wired/staticStyle"
-        },
-        {
-          name: "transition",
-          icon: "",
-          description: "过渡",
-          path: "/css/wired/transitionIndex"
-        },
-        {
-          name: "box-shadow",
-          icon: "",
-          description: "阴影",
-          path: "/css/wired/boxShadowIndex"
-        },
-        {
-          name: "shape",
-          icon: "",
-          description: "形状",
-          path: "/css/wired/shapeIndex"
-        },
-        {
-          name: "animo",
-          icon: "",
-          description: "关键帧",
-          path: "/css/wired/opacity01"
-        }
       ]
     };
   },
