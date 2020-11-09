@@ -1,7 +1,7 @@
 <template>
   <div class="flex-container">
     <template v-for="item in sourceData">
-      <div class="item shadow-f01" @click="toDetail(item)">
+      <div class="item shadow-f01" @click="toDetail(item)" :key="item.name">
         <div class="img-container">
           <div class="item-img" :style="getRandomStyle(item.img)"></div>
         </div>
