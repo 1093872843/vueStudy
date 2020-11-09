@@ -3,6 +3,10 @@ export const BAR_CONFIG = {
     name: "CSS",
     path: "/css/wired",
   },
+  component001: {
+    name: "组件",
+    path: "/component",
+  },
   // es6: {
   //   name: "ES6",
   //   path: "ES6",

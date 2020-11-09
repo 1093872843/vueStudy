@@ -4,6 +4,7 @@ import App from "./App";
 //对最上级vue添加路由
 import router from "./router";
 import 'ant-design-vue/dist/antd.css'; 
+import '@/global-config/global-css/demo-css.less'
 //需要手动将ant-vue的组件加载进来，不然无法使用
 import {
   LocaleProvider,

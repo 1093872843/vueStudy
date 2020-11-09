@@ -19,7 +19,7 @@
       </a-menu>
     </a-layout-header>
     <a-layout>
-      <a-layout-sider width="200" style="background: #fff" v-if="sideType">
+      <!-- <a-layout-sider width="200" style="background: #fff" v-if="sideType">
         <a-menu
           mode="inline"
           :default-selected-keys="['1']"
@@ -42,7 +42,7 @@
             </a-menu-item>
           </a-sub-menu>
         </a-menu>
-      </a-layout-sider>
+      </a-layout-sider> -->
       <a-layout style="padding: 0 24px 24px">
         <a-layout-content
           :style="{

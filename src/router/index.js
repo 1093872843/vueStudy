@@ -11,7 +11,7 @@ const CORE_ROUTE = [
     path: "/",
     name: "home",
     component: Home
-  },
+  }
 ];
 
 //Css样式路由
@@ -42,8 +42,23 @@ const CSS_ROUTE = [
   }
 ];
 
+const COMPONENT_ROUTE = [
+  {
+    // Css首页
+    path: "/component",
+    name: "component",
+    component: () => import("@/component/index.vue")
+  },
+  {
+    // Css首页
+    path: "/component/singlePreView",
+    name: "singlePreView",
+    component: () => import("@/component/preViewImg/single-preview.vue")
+  }
+];
+
 let router = new Router({
-  routes: [...CORE_ROUTE, ...CSS_ROUTE]
+  routes: [...CORE_ROUTE, ...CSS_ROUTE, ...COMPONENT_ROUTE]
 });
 
 //异步加载问题有时会导致Loading chunk failed错误，这是由于加载js失败

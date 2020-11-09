@@ -2,7 +2,7 @@
   <div class="flex-container">
     <template v-for="item in sourceData">
       <router-link :to="item.path">
-        <div class="flex-item" :style="getRandomColor(item.name, item.width)">
+        <div class="flex-item shadow-f01" :style="getRandomColor(item.name, item.width)">
           <div class="item-name">{{ item.name }}</div>
           <div class="item-desc">{{ item.description }}</div>
         </div>
@@ -24,7 +24,7 @@ export default {
           path: "/css/wired/dynamicStyle"
         },
         {
-          name: "图形",
+          name: "丰富的CSS图形",
           icon: "",
           description: "你想要个苹果还是peach？",
           width: "90vw",
@@ -81,21 +81,39 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-content: flex-start;
   height: 100%;
   padding: 50px 100px;
   .flex-item {
     height: 120px;
     width: 120px;
     border-radius: 10px;
-    background: #000000;
+    margin: 20px 0px;
     color: #ffffff;
     text-align: center;
+    transition: 0.35s;
+    box-shadow: 2px 0px 2px 2px #666262;
     .item-name {
       font-size: 18px;
       line-height: 3em;
+      transition: 0.3s;
     }
-    .item-desc {
-    }
+
   }
+}
+
+.shadow-f01:hover {
+  transform: scale(1.05);
+  -ms-transform: scale(1.05); /* IE 9 */
+  -moz-transform: scale(1.05); /* Firefox */
+  -webkit-transform: scale(1.05); /* Safari 和 Chrome */
+  -o-transform: scale(1.05); /* Opera */
+  box-shadow: 0px 4px 5px 7px #666262;
+  transition: 0.5s;
+}
+
+.shadow-f01 {
+  transition: 0.35s;
+  box-shadow: 0px 2px 2px 2px #666262;
 }
 </style>
