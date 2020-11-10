@@ -4,6 +4,7 @@ export const SOURCE_DATA = [
     icon: "",
     description: "敬请期待",
     path: "",
+    //require的参数不能使用变量，只能使用常量
     img: require("../assets/showImage/preview.jpg")
   },
   {

@@ -5,6 +5,8 @@ import App from "./App";
 import router from "./router";
 import 'ant-design-vue/dist/antd.css'; 
 import '@/global-config/global-css/demo-css.less'
+import '@/assets/aliIcon/Demo/iconfont.css'
+// import '@/assets/aliIcon/Demo/iconfont.js'
 //需要手动将ant-vue的组件加载进来，不然无法使用
 import {
   LocaleProvider,

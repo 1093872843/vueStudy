@@ -4,8 +4,16 @@ export const BAR_CONFIG = {
     path: "/css/wired",
   },
   component001: {
-    name: "组件",
+    name: "复用组件",
     path: "/component",
+  },
+  vue001: {
+    name: "vue",
+    path: "/vue",
+  },
+  web001: {
+    name: "web通用",
+    path: "/web",
   },
   // es6: {
   //   name: "ES6",

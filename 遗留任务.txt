@@ -1,13 +1,6 @@
 Vue.component
 Vue.prototype.$
 vue 中的name有什么用。
- CSS3
- position: fixed;
--webkit-
-text-decoration: none;
-.close:hover,
-.close:focus
-white-space
 @media
 babylon
 制作百叶窗。
@@ -16,7 +9,7 @@ babylon
 制作上传按钮，要求能够拖动图片，缓存本地，点击下载。
 全局css
 position: relative和position: absolute的关系
-
+14.如何保证同一个页面不会重复打开，而是跳转到已经打开的页面
 process.env.NODE_ENV -----这是类似于java的配置文件，可以根据启动命令的不同，使用对应的配置文件。从而完成环境和变量的切换。
 antd是什么 -----蚂蚁集团的产品，一系列适用各个前端框架的UI组件框架
 webpack -----

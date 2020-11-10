@@ -1,12 +1,15 @@
 <template>
   <div class="flex-container">
     <template v-for="item in sourceData">
-      <router-link :to="item.path">
-        <div class="flex-item shadow-f01" :style="getRandomColor(item.name, item.width)">
-          <div class="item-name">{{ item.name }}</div>
-          <div class="item-desc">{{ item.description }}</div>
-        </div>
-      </router-link>
+      <div
+        class="flex-item shadow-f01"
+        :style="getRandomColor(item.name, item.width)"
+        :key="item.path"
+        @click="todetail(item.path)"
+      >
+        <div class="item-name">{{ item.name }}</div>
+        <div class="item-desc">{{ item.description }}</div>
+      </div>
     </template>
   </div>
 </template>
@@ -20,14 +23,14 @@ export default {
           name: "交互",
           icon: "",
           description: "哦~老铁，你想成为魔法师吗？",
-          width: "90vw",
+          width: "100%",
           path: "/css/wired/dynamicStyle"
         },
         {
           name: "丰富的CSS图形",
           icon: "",
           description: "你想要个苹果还是peach？",
-          width: "90vw",
+          width: "100%",
           path: "/css/wired/staticStyle"
         },
         {
@@ -58,6 +61,9 @@ export default {
     };
   },
   methods: {
+    todetail(path) {
+      this.$router.push(path);
+    },
     getRandomColor(name, width) {
       let returnstr = "";
       let colorCode = 5387;
@@ -83,7 +89,11 @@ export default {
   justify-content: space-between;
   align-content: flex-start;
   height: 100%;
+  width: 100vw;
   padding: 50px 100px;
+  background-image: url("../assets/bgImg/blueStar.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   .flex-item {
     height: 120px;
     width: 120px;
@@ -92,13 +102,11 @@ export default {
     color: #ffffff;
     text-align: center;
     transition: 0.35s;
-    box-shadow: 2px 0px 2px 2px #666262;
     .item-name {
       font-size: 18px;
       line-height: 3em;
       transition: 0.3s;
     }
-
   }
 }
 
@@ -108,12 +116,12 @@ export default {
   -moz-transform: scale(1.05); /* Firefox */
   -webkit-transform: scale(1.05); /* Safari 和 Chrome */
   -o-transform: scale(1.05); /* Opera */
-  box-shadow: 0px 4px 5px 7px #666262;
+  box-shadow: 0px 4px 15px 7px rgba(170, 165, 165, 0.3);
   transition: 0.5s;
 }
 
 .shadow-f01 {
   transition: 0.35s;
-  box-shadow: 0px 2px 2px 2px #666262;
+  box-shadow: 0px 2px 2px 2px rgba(177, 174, 174, 0.1);
 }
 </style>

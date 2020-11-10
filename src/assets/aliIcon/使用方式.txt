@@ -1,0 +1,57 @@
+如何将阿里图库的标签下载下来并且在vue中使用
+1. 进入阿里图库官网，选中图标，放入购物车
+2. 进入购物车，选择下载代码、解压后内容为同目录下的Demo文件夹,除去iconfont.css和iconfont.js，其他文件我们都不用关心，但是不要删除。
+
+
+注意.
+    下载好的图片我们有三种使用方式
+    1.Unicode 引用
+        这种方式兼容性良好，可以兼容现代所有浏览器，支持IE6+,
+        这种方式的图片本质上是字体，所以不支持多色，即使下载下来的是多色，通过这种方式引用也会失色
+    使用方式：
+        虽然文件里一大堆东西，但是这种引用方式只需要 iconfont.css这一个文件就好了。
+        我们需要做的就是引用这个css，然后使用。
+        <link rel="stylesheet" href="./iconfont.css">
+        <span class="iconfont">&#x33;</span>
+
+    
+    2.font-class 引用
+        font-class 是 Unicode 使用方式的一种变种，主要是解决 Unicode 书写不直观，语意不明确的问题。
+        兼容性良好，支持 IE8+，及所有现代浏览器。
+        相比于 Unicode 语意明确，书写更直观。可以很容易分辨这个 icon 是什么。
+        因为使用 class 来定义图标，所以当要替换图标时，只需要修改 class 里面的 Unicode 引用。
+        不过因为本质上还是使用的字体，所以多色图标还是不支持的。
+    
+    使用方式：
+        虽然文件里一大堆东西，但是这种引用方式只需要 iconfont.css这一个文件就好了。
+        我们需要做的就是引用这个css，然后使用。
+        <link rel="stylesheet" href="./iconfont.css">
+        <span class="iconfont icon-xxx"></span>
+        这里和 Unicode 引用的区别在于，Unicode 引用使用的是图标编码&#x33;而font-class 引用不需要，他在
+        class中直接引用对应的图标类名。
+    
+    3.Symbol 引用
+        这是一种全新的使用方式，应该说这才是未来的主流，也是平台目前推荐的用法。这种用法其实是做了一个 SVG 的集合，
+        与另外两种相比具有如下特点：
+            支持多色图标了，不再受单色限制。
+            矢量，不失真
+            通过一些技巧，支持像字体那样，通过 font-size, color 来调整样式。
+            兼容性较差，支持 IE9+，及现代浏览器。
+            浏览器渲染 SVG 的性能一般，还不如 png。
+    使用方式：  
+        需要的是iconfont.css和iconfont.js两个文件。
+        引入js文件，然后，定义一个icon，因为这里并不是一个图片，而是svg，所以我们需要定义一个icon的样式来展示图片
+        只是使用。
+        <script src="./static/iconfont.js"></script>
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#caisenan"></use>
+        </svg>
+
+
