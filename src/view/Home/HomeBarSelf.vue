@@ -16,16 +16,15 @@ export default {
   props: {
     sourceData: {
       type: Object,
-      default: []
+      default: ()=>{}
     }, //源数据，一个含有数组
-    key: {
-      type: Object,
-      default: null
-    },
     
   },
   data() {
     return {};
+  },
+  created() {
+    console.log('HomeBaeSelf');
   }
 };
 </script>

@@ -67,6 +67,9 @@ export default {
       sideType: null,
       BAR_CONFIG: BAR_CONFIG
     };
+  },
+  created() {
+    console.log('idneHome');
   }
 };
 </script>

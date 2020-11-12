@@ -91,7 +91,7 @@ export default {
   height: 100%;
   width: 100vw;
   padding: 50px 100px;
-  background-image: url("../assets/bgImg/blueStar.jpg");
+  background-image: url("../../assets/bgImg/blueStar.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   .flex-item {
