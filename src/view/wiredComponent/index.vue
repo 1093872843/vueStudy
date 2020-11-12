@@ -1,16 +1,19 @@
 <template>
-  <div class="flex-container">
-    <template v-for="item in sourceData">
-      <div class="item shadow-f01" @click="toDetail(item)" :key="item.name">
-        <div class="img-container">
-          <div class="item-img" :style="getRandomStyle(item.img)"></div>
+  <div>
+    组件插件案例：https://www.jq22.com/
+    <div class="flex-container">
+      <template v-for="item in sourceData">
+        <div class="item shadow-f01" @click="toDetail(item)" :key="item.name">
+          <div class="img-container">
+            <div class="item-img" :style="getRandomStyle(item.img)"></div>
+          </div>
+          <div class="item-content">
+            <div class="item-name">{{ item.name }}</div>
+            <div class="item-desc">{{ item.description }}</div>
+          </div>
         </div>
-        <div class="item-content">
-          <div class="item-name">{{ item.name }}</div>
-          <div class="item-desc">{{ item.description }}</div>
-        </div>
-      </div>
-    </template>
+      </template>
+    </div>
   </div>
 </template>
 
@@ -54,8 +57,8 @@ export default {
 .item {
   margin: 10px;
   border-radius: 5% 5% 5% 5%;
-  height: 350px;
-  width: 350px;
+  height: 200px;
+  width: 200px;
   position: relative;
   //因为高斯模糊使得元素边框也模糊，所以给父元素添加overflow: hidden会隐藏这个模糊。
   overflow: hidden;

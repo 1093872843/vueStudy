@@ -9,27 +9,34 @@ babylon
 制作上传按钮，要求能够拖动图片，缓存本地，点击下载。
 全局css
 position: relative和position: absolute的关系
-14.如何保证同一个页面不会重复打开，而是跳转到已经打开的页面
 process.env.NODE_ENV -----这是类似于java的配置文件，可以根据启动命令的不同，使用对应的配置文件。从而完成环境和变量的切换。
-antd是什么 -----蚂蚁集团的产品，一系列适用各个前端框架的UI组件框架
 webpack -----
 webkit -----
-混淆js
 .server-wrap>.footer
 CSS Modules 
-
 使用css moudel开发
 拖拽图片 拖拽效果
-实现点击按钮，预设输入文字的风格。
 尝试vue vue.compotent渲染,引入，插槽。
-实现多语言,至少三种语言
+ebpack
 使用mock
-after
-before
-
-webpack
-尝试vue vue.compotent渲染,引入，插槽.
-
-混淆js
-
+看下css3
+H5
+<map>
 Vuex 和vue
+vue 路由上的prop属性
+
+
+antd是什么 
+    -----蚂蚁集团的产品，一系列适用各个前端框架的UI组件框架
+after 
+     ----在关联元素document流后面的位置生成一个新的div。
+before
+     ----在关联元素document流前面的位置生成一个新的div。
+jenkins关联gitLab进行vue项目自动部署打包
+     -----
+尝试vue vue.compotent渲染,引入，插槽.
+    ------
+如何保证同一个页面不会重复打开，而是跳转到已经打开的页面
+    ---a标签中的_targer属性，如果打开链接的_targer属性相同，则不会打开新的页面，而是跳转至拥有页面。
+混淆js
+    -----   混淆js是一种压缩js的手段，会将js中的长变量名替换成端变量名，这样做可以 压缩代码体积，增加访问js速度，增加代码安全性，但是会降低代码的可读性。

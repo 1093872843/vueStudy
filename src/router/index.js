@@ -51,10 +51,16 @@ const COMPONENT_ROUTE = [
     component: () => import("@/wiredComponent/index.vue")
   },
   {
-    // Css首页
+    // 预览
     path: "/component/singlePreView",
     name: "singlePreView",
     component: () => import("@/wiredComponent/preViewImg/single-preview.vue")
+  },
+  {
+    // 拖动
+    path: "/component/drag",
+    name: "drag",
+    component: () => import("@/wiredComponent/comDrag/com-drag.vue")
   }
 ];
 
@@ -109,6 +115,7 @@ let router = new Router({
     ...COMPONENT_ROUTE,
     ...VUE_ROUTE,
     ...WEB_ROUTE,
+    //  ...ERR_ROUTE必须放在最后
     ...ERR_ROUTE
   ]
 });

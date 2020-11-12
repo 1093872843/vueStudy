@@ -20,5 +20,12 @@ export const SOURCE_DATA = [
     description: "敬请期待",
     path: "",
     img: require("../assets/showImage/preview2.jpg")
+  },
+  {
+    name: "拖动",
+    icon: "",
+    description: "敬请期待",
+    path: "/component/drag",
+    img: require("../assets/showImage/preview2.jpg")
   }
 ];
