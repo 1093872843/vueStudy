@@ -26,6 +26,13 @@ export const SOURCE_DATA = [
     icon: "",
     description: "敬请期待",
     path: "/component/drag",
-    img: require("../../assets/showImage/preview2.jpg")
+    img: require("@/assets/showImage/preview2.jpg")
+  },
+  {
+    name: "图片3d效果跟随鼠标移动",
+    icon: "",
+    description: "敬请期待",
+    path: "/component/3dPictureMove",
+    img: require("@/assets/showImage/preview2.jpg")
   }
 ];

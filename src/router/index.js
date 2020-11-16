@@ -86,6 +86,12 @@ const COMPONENT_ROUTE = [
     path: "/component/drag",
     name: "drag",
     component: () => import("@/view/wiredComponent/comDrag/com-drag.vue")
+  },
+  {
+    // 图片3d效果跟随鼠标移动
+    path: "/component/3dPictureMove",
+    name: "3dPictureMove",
+    component: () => import("@/view/wiredComponent/3dPictureMove/index.vue")
   }
 ];
 
