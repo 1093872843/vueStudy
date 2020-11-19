@@ -2,7 +2,10 @@
   <div class="flex-container">
     <template v-for="item in sourceData">
       <router-link :to="item.path" :key="item.path">
-        <div class="flex-item shadow-f01" :style="getRandomColor(item.name, item.width)">
+        <div
+          class="flex-item shadow-f01"
+          :style="getRandomColor(item.name, item.width)"
+        >
           <div class="item-name">{{ item.name }}</div>
           <div class="item-desc">{{ item.description }}</div>
         </div>
@@ -22,13 +25,25 @@ export default {
           description: "vuex",
           path: "/vue/vuex"
         },
+        {
+          name: "vue",
+          icon: "",
+          description: "vue",
+          path: "/vue/self"
+        },
+        {
+          name: "webpack",
+          icon: "",
+          description: "webpack",
+          path: "/webpack"
+        }
       ]
     };
   },
   methods: {
     getRandomColor(name, width) {
       let returnstr = "";
-      let colorCode = 5387;
+      let colorCode = 5412;
       for (let i = name.length - 1; i > -1; i--) {
         colorCode += (colorCode << 5) + name.charCodeAt(i);
       }
@@ -66,7 +81,6 @@ export default {
       line-height: 3em;
       transition: 0.3s;
     }
-
   }
 }
 

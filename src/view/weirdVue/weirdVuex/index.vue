@@ -17,7 +17,7 @@
               key="/vue/vuex/introduce"
               @click="toDetail('/vue/vuex/introduce')"
             >
-              vue介绍
+              vuex介绍
             </a-menu-item>
             <a-menu-item key="2" @click="toDetail('/vue/vuex/introduce')">
               安装
@@ -87,7 +87,7 @@ export default {
     goBack() {
       this.$router.go(-1);
     },
-    toDetail(paht) {
+    toDetail(path) {
       this.$router.push(path);
     }
   }

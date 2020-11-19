@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "@/view/Home/index";
 import NotFound from "@/view/Home/index";
-import HomeBarSelf from "@/view/Home/HomeBarSelf"
+import HomeBarSelf from "@/view/Home/HomeBarSelf";
 
 Vue.use(Router);
 
@@ -12,10 +12,10 @@ const CORE_ROUTE = [
     // 结果页面
     path: "/",
     name: "home",
-    component: Home,
-/*  prop:true, 作用等同于tbeforeRouteEnter,不同的的是获取方式，通过定义组件中的prop属性，来获取路由上的参数。而不是使用beforeRouteEnter
+    component: Home
+    /*  prop:true, 作用等同于tbeforeRouteEnter,不同的的是获取方式，通过定义组件中的prop属性，来获取路由上的参数。而不是使用beforeRouteEnter
                实现了路由和组建的分离 */
-/*   beforeRouteEnter (to, from, next) {
+    /*   beforeRouteEnter (to, from, next) {
       路由守卫
       路由进入前调用，此时组件实例还没有被创建，所以不存在this指向组件实例，如果想使用this，
       使用next的回调，next回调后，实例已被创建，beforeRouteEnter是唯一需要通过next获取组件实例this的方法
@@ -32,7 +32,7 @@ const CORE_ROUTE = [
       路由首位
       组件离开时调用，如果你希望用户在意外掉关闭，而做出提示时，可以在这里写入相应的提示，并将next(false)返回
     } */
-  },
+  }
 ];
 
 //Css样式路由
@@ -79,7 +79,8 @@ const COMPONENT_ROUTE = [
     // 预览
     path: "/component/singlePreView",
     name: "singlePreView",
-    component: () => import("@/view/wiredComponent/preViewImg/single-preview.vue")
+    component: () =>
+      import("@/view/wiredComponent/preViewImg/single-preview.vue")
   },
   {
     // 拖动
@@ -114,6 +115,40 @@ const VUE_ROUTE = [
         component: () => import("@/view/weirdVue/weirdVuex/introduce.vue")
       }
     ]
+  },
+  {
+    // vue技术
+    path: "/vue/self",
+    name: "vue",
+    component: () => import("@/view/weirdVue/vue/index.vue"),
+    //子路由能够继承路由的内容作为前缀，同时和<router-view>组合使用能够实现单个页面的内容切换，而不是页面跳转。
+    children: [
+      {
+        path: "introduce",
+        component: () => import("@/view/weirdVue/vue/introduce.vue")
+      },
+      {
+        path: "vueHtml",
+        component: () => import("@/view/weirdVue/vue/vueHtml.vue"),
+      }
+    ]
+  },
+  {
+    // webpack技术
+    path: "/webpack",
+    name: "vue",
+    component: () => import("@/view/weirdVue/webpack/index.vue"),
+    //子路由能够继承路由的内容作为前缀，同时和<router-view>组合使用能够实现单个页面的内容切换，而不是页面跳转。
+    children: [
+      {
+        path: "introduce",
+        component: () => import("@/view/weirdVue/webpack/introduce.vue")
+      },
+      // {
+      //   path: "vueHtml",
+      //   component: () => import("@/view/weirdVue/webpack/1.vue"),
+      // }
+    ]
   }
 ];
 
@@ -139,6 +174,8 @@ const ERR_ROUTE = [
     redirect: "/"
   }
 ];
+
+//路由的最终结果需要的是一个含有指定格式的对象。
 let router = new Router({
   routes: [
     ...CORE_ROUTE,
@@ -150,6 +187,7 @@ let router = new Router({
     ...ERR_ROUTE
   ]
 });
+
 //异步加载问题有时会导致Loading chunk failed错误，这是由于加载js失败
 //我们使用异常捕获，重新加载页面,也可以做一些其他的异常捕获。
 router.onError(error => {
@@ -160,5 +198,14 @@ router.onError(error => {
     router.replace(targetPath);
   }
 });
+
+/* vue-router 3.1版本以上，重复点击同一个路由地址会报错  NavigationDuplicated
+  该报错不影响功能，但是很烦。添加以下代码可以解决该报错。
+  或者你可以将vue-router 换成3.1以前的版本
+*/
+const originalPush = Router.prototype.push;
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err);
+};
 
 export default router;
