@@ -151,7 +151,26 @@ const VUE_ROUTE = [
     ]
   }
 ];
-
+const ECHARTS_ROUTE = [
+  {
+    // echarts合集
+    path: "/echarts",
+    name: "echarts",
+    component: () => import("@/view/weirdEcharts/index.vue")
+  },
+  {
+    // web通用技术
+    path: "/echarts/BS_HR1",
+    name: "BS_HR1",
+    component: () => import("@/view/weirdEcharts/bigScreenHR1/index.vue")
+  },
+  {
+    // web通用技术
+    path: "/echarts/BS_HR2",
+    name: "BS_HR1",
+    component: () => import("@/view/weirdEcharts/bigScreenHR2/index.vue")
+  }
+];
 const WEB_ROUTE = [
   {
     // web通用技术
@@ -183,6 +202,7 @@ let router = new Router({
     ...COMPONENT_ROUTE,
     ...VUE_ROUTE,
     ...WEB_ROUTE,
+    ...ECHARTS_ROUTE,
     //  ...ERR_ROUTE必须放在最后
     ...ERR_ROUTE
   ]

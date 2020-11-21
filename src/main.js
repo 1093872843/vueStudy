@@ -4,10 +4,13 @@ import App from "./App";
 //对最上级vue添加路由
 import router from "./router";
 import 'ant-design-vue/dist/antd.css'; 
+//引入全局css
 import '@/global-config/global-css/demo-css.less'
 import '@/assets/aliIcon/Demo/iconfont.css'
 // import '@/assets/aliIcon/Demo/iconfont.js'
 //需要手动将ant-vue的组件加载进来，不然无法使用
+//引入echarts
+import echarts from 'echarts'
 import {
   LocaleProvider,
   Layout,
@@ -114,6 +117,7 @@ Vue.prototype.$info = Modal.info;
 Vue.prototype.$success = Modal.success;
 Vue.prototype.$error = Modal.error;
 Vue.prototype.$warning = Modal.warning;
+Vue.prototype.$echarts = echarts
 /* eslint-disable no-new */
 new Vue({
   el: "#app",

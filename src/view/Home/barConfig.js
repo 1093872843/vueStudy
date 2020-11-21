@@ -15,6 +15,10 @@ export const BAR_CONFIG = {
     name: "web通用",
     path: "/web",
   },
+  echarts001: {
+    name: "echarts",
+    path: "/echarts",
+  },
   // es6: {
   //   name: "ES6",
   //   path: "ES6",
