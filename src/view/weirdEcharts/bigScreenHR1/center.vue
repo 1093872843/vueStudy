@@ -8,118 +8,226 @@
 
 <script>
 import "./localCss.css";
+import "echarts/map/js/china.js";
 export default {
   data() {
     return {
-      grpDistributeEchart: null
+      grpDistributeEchart: null,
+      mapName: "china", //中国地图
+      geoCoordMap: {},
+      max: 480,
+      min: 9, // todo
+      maxSize4Pin: 100,
+      minSize4Pin: 20
     };
   },
   methods: {
-    setGrsOption(xData, yData, seriesData) {
+    setGrsOption(grpDistriData) {
       // 绘制图表
       this.grpDistributeEchart.setOption({
-        title: {
-          text: "整体面积情况",
-          top: 20,
-          left: 20,
-          textStyle: {
-            fontWeight: 600,
-            fontSize: "16"
+        // tooltip: {
+        //   trigger: "item",
+        //   formatter: function(params) {
+        //     if (typeof params.value[2] == "undefined") {
+        //       let toolTiphtml = "";
+        //       for (let i = 0; i < toolTipData.length; i++) {
+        //         if (params.name == toolTipData[i].name) {
+        //           toolTiphtml += toolTipData[i].name + ":<br>";
+        //           for (let j = 0; j < toolTipData[i].value.length; j++) {
+        //             toolTiphtml +=
+        //               toolTipData[i].value[j].name +
+        //               ":" +
+        //               toolTipData[i].value[j].value +
+        //               "<br>";
+        //           }
+        //         }
+        //       }
+        //       return toolTiphtml;
+        //     } else {
+        //       let toolTiphtml = "";
+        //       for (let i = 0; i < toolTipData.length; i++) {
+        //         if (params.name == toolTipData[i].name) {
+        //           toolTiphtml += toolTipData[i].name + ":<br>";
+        //           for (let j = 0; j < toolTipData[i].value.length; j++) {
+        //             toolTiphtml +=
+        //               toolTipData[i].value[j].name +
+        //               ":" +
+        //               toolTipData[i].value[j].value +
+        //               "<br>";
+        //           }
+        //         }
+        //       }
+        //       return toolTiphtml;
+        //     }
+        //   }
+        // },
+        visualMap: {
+          show: false,
+          seriesIndex: [1],
+          inRange: {
+            color: ["#ebebeb", "#ebebeb"] // 蓝绿
           }
         },
-        grid: {
-          x: 100,
-          y: 50
-        },
-        tooltip: {},
-        color: ["#2ec18a"],
-        xAxis: [
-          {
-            data: xData,
-            interval: 1000,
-            axisLabel: {
-              show: true,
-              textStyle: {
-                color: "#cacaca",
-                fontSize: "13"
-              },
-              margin: 20
-            },
-            axisLine: {
-              lineStyle: {
-                color: "#cacaca"
-              }
-            },
-            splitLine: {
-              lineStyle: {
-                type: "dashed"
-              }
-            }
-          }
-        ],
-        yAxis: [
-          {
-            data: yData,
-            axisLabel: {
-              show: true,
-              textStyle: {
-                color: "#cacaca",
-                fontSize: "13",
-                fontWeight: 600
-              }
-            },
-            axisLine: {
-              lineStyle: {
-                color: "#cacaca"
-              }
-            }
-          }
-        ],
-        series: {
-          type: "bar",
-          data: seriesData,
-          barMinWidth: 10,
-          barMaxWidth: 10,
-          itemStyle: {
-            //上方显示数值
+        geo: {
+          show: true,
+          map: this.mapName,
+          label: {
             normal: {
-              label: {
-                show: true, //开启显示
-                position: "right", //在上方显示
+              show: false
+            },
+            emphasis: {
+              show: false
+            }
+          },
+          roam: false,
+          itemStyle: {
+            normal: {
+              areaColor: "#ebebeb",
+              borderColor: "#000000"
+            },
+            emphasis: {
+              areaColor: "#2B91B7"
+            }
+          }
+        },
+        series: [
+          {
+            name: "散点",
+            type: "scatter",
+            coordinateSystem: "geo",
+            data: this.convertData(grpDistriData),
+            symbolSize: function(val) {
+              return val[2] / 10;
+            },
+            label: {
+              normal: {
+                formatter: "{b}",
+                position: "right",
+                show: true
+              },
+              emphasis: {
+                show: true
+              }
+            },
+            itemStyle: {
+              normal: {
+                color: "#05C3F9"
+              }
+            }
+          },
+          {
+            type: "map",
+            map: this.mapName,
+            geoIndex: 0,
+            aspectScale: 0.75, //长宽比
+            showLegendSymbol: false, // 存在legend时显示
+            label: {
+              normal: {
+                show: true
+              },
+              emphasis: {
+                show: false,
                 textStyle: {
-                  //数值样式
-                  color: "#2ec18a",
-                  fontSize: 13,
-                  fontWeight: 600
+                  color: "#fff"
                 }
               }
-            }
+            },
+            roam: false,
+            itemStyle: {
+              normal: {
+                areaColor: "#031525",
+                borderColor: "#3B5077"
+              },
+              emphasis: {
+                areaColor: "#2B91B7"
+              }
+            },
+            animation: false,
+            data: grpDistriData
+          },
+          {
+            name: "点",
+            type: "scatter",
+            coordinateSystem: "geo",
+            symbol: "pin", //气泡
+            symbolSize: val => {
+              let a =
+                (this.maxSize4Pin - this.minSize4Pin) / (this.max - this.min);
+              let b = this.minSize4Pin - a * this.min;
+              b = this.maxSize4Pin - a * this.max;
+              return a * val[2] + b;
+            },
+            label: {
+              normal: {
+                show: true,
+                textStyle: {
+                  color: "#fff",
+                  fontSize: 9
+                }
+              }
+            },
+            itemStyle: {
+              normal: {
+                label: {
+                  color: "#F62157",
+                  show: true,
+                  formatter: function(params, ticket, callback) {
+                    var s = params.value[2];
+                    return s;
+                  }
+                }
+              }
+            },
+            zlevel: 6,
+            data: this.convertData(grpDistriData)
           }
-        }
+        ]
       });
     },
     initEcharts() {
       this.grpDistributeEchart = this.$echarts.init(this.$refs.grpDistribute);
+      var mapFeatures = this.$echarts.getMap(this.mapName).geoJson.features;
+      mapFeatures.forEach(v => {
+        // 地区名称
+        var name = v.properties.name;
+        // 地区经纬度
+        this.geoCoordMap[name] = v.properties.cp;
+      });
+    },
+    convertData(data) {
+      let res = [];
+      for (let i = 0; i < data.length; i++) {
+        let geoCoord = this.geoCoordMap[data[i].name];
+        if (geoCoord) {
+          res.push({
+            name: data[i].name,
+            value: geoCoord.concat(data[i].value)
+          });
+        }
+      }
+      return res;
     },
     getData() {
-      return {
-        x: ["未开工", "已竣备未交付", "已交付"],
-        y: null,
-        seriesData: [
-          [202, 526, 520, 36, 24, 184],
-          [82, 20, 90, 50, 500, 40]
-        ]
-      };
+      return [
+        { name: "吉林", value: 82 },
+        { name: "上海", value: 24 },
+        { name: "江苏", value: 92 },
+        { name: "福建", value: 116 },
+        { name: "山东", value: 119 },
+        { name: "湖北", value: 116 },
+        { name: "湖南", value: 114 },
+        { name: "四川", value: 125 },
+        { name: "贵州", value: 62 },
+        { name: "云南", value: 83 },
+        { name: "陕西", value: 80 },
+        { name: "广西", value: 59 }
+      ];
     }
   },
   mounted() {
     this.initEcharts();
-    let localAreaData = this.getData();
-    this.setGrsOption(
-      localAreaData.x,
-      localAreaData.y,
-      localAreaData.seriesData
-    );
+    let grpDistriData = this.getData();
+    this.setGrsOption(grpDistriData);
   }
 };
 </script>

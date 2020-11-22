@@ -21,6 +21,7 @@ import center from "./center.vue";
 import leftBar from "./leftBar.vue";
 import rightBar from "./rightBar.vue";
 import topCard from "./topCard.vue";
+import {eChaStore} from './../echarts-store'
 export default {
   components: {
     bottomCard: bottomCard,
@@ -28,6 +29,8 @@ export default {
     leftBar: leftBar,
     rightBar: rightBar,
     topCard: topCard
+  },
+  created(){
   }
 };
 </script>
