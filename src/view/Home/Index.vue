@@ -52,7 +52,7 @@
             minHeight: '280px'
           }"
         >
-          Content
+          {{}}
         </a-layout-content>
       </a-layout>
     </a-layout>
@@ -68,8 +68,11 @@ export default {
       BAR_CONFIG: BAR_CONFIG
     };
   },
+  method: {
+    a() {}
+  },
   created() {
-    console.log('idneHome');
+    console.log("idneHome");
   }
 };
 </script>

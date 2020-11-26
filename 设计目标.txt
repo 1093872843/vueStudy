@@ -24,4 +24,4 @@
   模块化页面。
 
 
-
+简短又实用的知识点： http://bonsaiden.github.io/JavaScript-Garden/zh/

@@ -1,0 +1,16 @@
+{
+  "name": "xyl-self-compoent",
+  "version": "1.0.0",
+  "description": "这是我第一个自己制作的npm包",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fall",
+    "in",
+    "love"
+  ],
+  "author": "",
+  "license": "ISC"
+}

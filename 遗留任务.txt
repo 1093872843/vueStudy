@@ -15,11 +15,10 @@ webkit -----
 .server-wrap>.footer
 CSS Modules 
 使用css moudel开发
-拖拽图片 拖拽效果
 尝试vue vue.compotent渲染,引入，插槽。
 ebpack
 使用mock
-看下css3
+css3
 H5
 <map>
 Vuex 和vue
@@ -34,7 +33,8 @@ compentent
 webpack打包原理 chunk
 history
 vue响应式原理
-
+ts
+less
 
 antd是什么 
     -----蚂蚁集团的产品，一系列适用各个前端框架的UI组件框架
